@@ -93,7 +93,55 @@ int SearchElement(int *arr, int targetele, int n)
 
     return 0;
 }
+void factorial(int n)
+{
+    int fact = 1;
+    
+    for(int i = 1; i <= n; i++)
+    {
+        fact = fact * i;
+    }
+    cout << "Iterative approach: Factorial of " << n << " is: ";
+    cout << fact << endl;
+}
+int recursivefactorial(int n)
+{
+    if(n == 0 || n == 1) return 1;
+    
+    return n * recursivefactorial(n - 1);
+}
 
+void fibonacci(int n)
+{
+    cout << "Fibonacci Series for " << n << " is: ";
+    int term1 = 0, term2 = 1;
+    cout << term1 << " " << term2 << " ";
+    for(int i = 2; i <= n; i++)
+    {
+        int term3 = term1 + term2;
+        cout << term3 << " ";
+        term1 = term2;
+        term2 = term3;
+    }
+    cout << endl;
+}
+bool isVowel(char ch)
+{
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'|| ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U');
+}
+
+void countVowels(string str)
+{
+    int count = 0;
+    for(int i = 0; i < str.size(); i++)
+    {
+        if(isVowel(str[i]))
+        {
+            count++;
+        }
+    }
+    cout << "Number of Vowels in " << str << " is: " << count << endl;
+}
 int main()
 {
     int a, b;
@@ -137,7 +185,7 @@ int main()
     {
         cout << "false" << endl;
     }
-    cout << "Searching the number: ";;
+    cout << "Searching the Number: ";;
     if (SearchElement(arr, targetele, n))
     {
         cout << "true" << endl;
@@ -146,5 +194,8 @@ int main()
     {
         cout << "false" << endl;
     }
-
+    factorial(5);
+    cout << "Recursive approach: Factorial of 5 is: " << recursivefactorial(5) << " " << endl;
+    fibonacci(5);
+    countVowels("rhythm");
 }
